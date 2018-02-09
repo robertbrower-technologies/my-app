@@ -1,1 +1,100 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+app-root {
+    display: flex;
+    flex-grow: 1;
+}
+
+filter-list {
+    background-color: yellow;
+    padding: 10px;
+
+    width: 320px;
+}
+
+filter-list li {
+    height: 32px;
+}
+
+filter-list li:hover {
+    background-color: green;
+}
+
+filter-list li.active {
+    background-color: red;
+}
+
+filter {
+    background-color: red;
+    padding: 5px;
+
+    display: flex;
+    flex-direction: column;
+
+    flex-grow: 1;
+}
+
+filter > div {
+    margin: 5px;
+}
+
+filter > div.buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+filter > div.compound-expressions {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+compound-expression {
+    background-color: blue;
+    margin: 15px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    flex-grow: 1;
+}
+
+compound-expression > div.expressions {
+    flex-grow: 1;
+}
+
+expression {
+    background-color: green;
+    margin: 10px;
+    padding: 5px;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+expression > div.expression {
+    
+    flex-grow: 1;
+}
+
+.fill {
+    flex-grow: 1;
+}
+
+button {
+    margin: 5px;
+    width: 32px;
+    height: 32px;
+}

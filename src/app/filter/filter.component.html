@@ -1,0 +1,13 @@
+<div class="buttons">
+  <span><label>Filter</label> <input type="text" [value]="filter?.name"></span>
+  <span class="fill"></span>
+  <button title="Add group" (click)="addExpression()">+</button>
+  <button title="Delete filter" (click)="deleteClicked()">X</button>
+</div>
+<div class="compound-expressions">
+    <compound-expression *ngFor="let ce of filter?.expressions; let i = index"
+      [expression]="ce"
+      [fields]="fields"
+      (deleteClick)="deleteExpression($event)">
+    </compound-expression>
+</div>
