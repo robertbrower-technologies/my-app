@@ -58,9 +58,16 @@ export class FilterComponent implements OnInit {
   }
 
   addExpressionGroup() {
-    this.filter.expressionGroups.push({
-       expressions: [{field: undefined, operator: undefined, value: undefined }]
-    });
+    this.filter.expressionGroups.push(
+      {
+        expressions: [
+          {
+            field: undefined,
+            operator: undefined,
+            value: undefined }
+          ]
+      }
+    );
 
     this.selectedIndex = this.filter.expressionGroups.length - 1;
     this.filterChange.emit(this._filter);

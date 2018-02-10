@@ -1,6 +1,7 @@
 <div class="buttons" *ngIf="filter">
   <span><label>Filter</label> <input type="text" [(ngModel)]="filter.name" (input)="nameChanged()"></span>
   <span class="fill"></span>
+  <button *ngIf="filter.unsavedChanges" title="Save filter" (click)="deleteClicked()">s</button>
   <button title="Add group" (click)="addExpressionGroup()">+</button>
   <button title="Delete filter" (click)="deleteClicked()">x</button>
 </div>

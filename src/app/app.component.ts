@@ -43,8 +43,18 @@ export class AppComponent {
     this.filters.push(
       {
         name: 'New Filter',
-        expressionGroups: [{expressions: [{field: undefined, operator: undefined, value: undefined}]}],
-        unsavedChanges: false
+        expressionGroups: [
+          {
+            expressions: [
+              {
+                field: undefined,
+                operator: undefined,
+                value: undefined
+              }
+            ]
+          }
+        ],
+        unsavedChanges: true
       }
     );
 

@@ -60,11 +60,13 @@ export class ExpressionGroupComponent implements OnInit, AfterViewInit {
   }
 
   addExpressionClicked() {
-    this.expressionGroup.expressions.push({
-      field: 'productType',
-      operator: 'eq',
-      value: ''
-    });
+    this.expressionGroup.expressions.push(
+      {
+        field: undefined,
+        operator: undefined,
+        value: undefined
+      }
+    );
 
     this.selectedIndex = this.expressionGroup.expressions.length - 1;
     this.expressionGroupChange.emit(this._expressionGroup);

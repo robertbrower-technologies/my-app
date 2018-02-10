@@ -25,8 +25,10 @@ export class NumericComparisionComponent implements OnInit {
 
   @Input()
   set value(value: string) {
-    this._value = value;
-    this.valueChange.emit(this._value);
+    if (this._value != value) {
+      this._value = value;
+      this.valueChange.emit(this._value);
+    }
   }
 
   @Output() valueChange = new EventEmitter();
