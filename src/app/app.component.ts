@@ -29,6 +29,7 @@ export class AppComponent {
 
   set filter(value: Filter) {
     this._filter = value;
+    console.log(JSON.stringify(this._filter));
   }
     
   selectedIndex: number;
@@ -41,8 +42,9 @@ export class AppComponent {
   addFilterClicked() {
     this.filters.push(
       {
-        name: '',
-        expressionGroups: []
+        name: 'New Filter',
+        expressionGroups: [{expressions: [{field: undefined, operator: undefined, value: undefined}]}],
+        unsavedChanges: false
       }
     );
 

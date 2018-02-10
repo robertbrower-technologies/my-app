@@ -18,7 +18,7 @@ export class FilterComponent implements OnInit {
   set filter(value: Filter) {
     this._filter = value;
     this.filterChange.emit(this._filter);
-    this.selectedIndex = -1;
+    this.selectedIndex = 0;
   }
 
   @Output() filterChange = new EventEmitter<Filter>();
@@ -36,7 +36,7 @@ export class FilterComponent implements OnInit {
 
   @Output() deleteClick = new EventEmitter();
 
-  selectedIndex: number;
+  selectedIndex: number = 0;
 
   constructor() { }
 

@@ -6,4 +6,6 @@ export class Filter {
     
     expressionGroups: Array<ExpressionGroup>;
 
+    unsavedChanges: boolean;
+
 }

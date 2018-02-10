@@ -5,6 +5,8 @@
 <div class="filters">
   <ul>
     <li *ngFor="let f of filters; let i = index"
-      (click)="filterClicked(i)" [class.active]="i == selectedIndex">{{f.name}}</li>
+      (click)="filterClicked(i)" [class.active]="i == selectedIndex">
+      <filter-list-item [filter]="f"></filter-list-item>
+    </li>
   </ul> 
 </div>
