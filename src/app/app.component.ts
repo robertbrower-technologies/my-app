@@ -29,7 +29,6 @@ export class AppComponent {
 
   set filter(value: Filter) {
     this._filter = value;
-    console.log(`filter set: ${JSON.stringify(this._filter)}`);
   }
     
   selectedIndex: number;
