@@ -1,13 +1,21 @@
-<div class="buttons">
-  <span><label>Filter</label> <input type="text" [value]="filter?.name"></span>
+<div class="buttons" *ngIf="filter">
+  <span><label>Filter</label> <input type="text" [(ngModel)]="filter.name" (input)="nameChanged()"></span>
   <span class="fill"></span>
-  <button title="Add group" (click)="addExpression()">+</button>
-  <button title="Delete filter" (click)="deleteClicked()">X</button>
+  <button title="Add group" (click)="addExpressionGroup()">+</button>
+  <button title="Delete filter" (click)="deleteClicked()">x</button>
 </div>
-<div class="compound-expressions">
-    <compound-expression *ngFor="let ce of filter?.expressions; let i = index"
-      [expression]="ce"
-      [fields]="fields"
-      (deleteClick)="deleteExpression($event)">
-    </compound-expression>
+<div #expressionGroups class="expression-groups">
+    <div *ngFor="let grp of filter?.expressionGroups; let i = index">
+      <expression-group
+        [expressionGroup]="grp"
+        (expressionGroupChange)="expressionGroupChanged(i)"
+        [fields]="fields"
+        (deleteClick)="deleteExpressionGroup(i)"
+        (click)="expressionGroupClicked(i)"
+        [class.active]="i == selectedIndex">
+      </expression-group>
+      <div>
+        <span class="or" *ngIf="i < filter?.expressionGroups.length-1">OR</span>
+      </div>
+    </div>
 </div>

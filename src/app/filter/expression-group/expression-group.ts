@@ -1,8 +1,6 @@
 import { Expression } from './expression/expression';
 
-export class CompoundExpression {
-    
-    id: number;
+export class ExpressionGroup {
     
     expressions: Array<Expression>;
 

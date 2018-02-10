@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CompoundExpressionComponent } from './compound-expression.component';
+import { ExpressionGroupComponent } from './expression-group.component';
 
-describe('CompoundExpressionComponent', () => {
-  let component: CompoundExpressionComponent;
-  let fixture: ComponentFixture<CompoundExpressionComponent>;
+describe('ExpressionGroupComponent', () => {
+  let component: ExpressionGroupComponent;
+  let fixture: ComponentFixture<ExpressionGroupComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CompoundExpressionComponent ]
+      declarations: [ ExpressionGroupComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CompoundExpressionComponent);
+    fixture = TestBed.createComponent(ExpressionGroupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

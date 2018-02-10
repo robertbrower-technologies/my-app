@@ -16,76 +16,122 @@ app-root {
 }
 
 filter-list {
-    background-color: yellow;
-    padding: 10px;
-
     width: 320px;
+    margin: 10px;
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 2px 4px #888888;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+filter-list > div.filters {
+    padding: 10px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+filter-list > div.filters > ul {
+    padding-left: 0;
 }
 
 filter-list li {
-    height: 32px;
+    padding: 10px;
+    list-style-type: none;
 }
 
 filter-list li:hover {
-    background-color: green;
+    background-color: lightgray;
 }
 
 filter-list li.active {
-    background-color: red;
+    background-color: lightgray;
 }
 
 filter {
-    background-color: red;
-    padding: 5px;
-
+    margin: 10px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-
     flex-grow: 1;
-}
-
-filter > div {
-    margin: 5px;
 }
 
 filter > div.buttons {
     display: flex;
     flex-direction: row;
     align-items: center;
+    flex-shrink: 0;
 }
 
-filter > div.compound-expressions {
+filter > div.expression-groups {
+    
     flex-grow: 1;
     overflow-y: auto;
 }
 
-compound-expression {
-    background-color: blue;
-    margin: 15px;
+filter > div.expression-groups > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+expression-group {
+    margin: 10px;
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 2px 4px #888888;
     display: flex;
     flex-direction: row;
     align-items: center;
-
     flex-grow: 1;
 }
 
-compound-expression > div.expressions {
+expression-group.active {
+    background-color: lightgray;
+}
+
+expression-group > div.expressions {
+    padding: 10px;
+    display: flex;
     flex-grow: 1;
+    flex-wrap: wrap;
+}
+
+expression-group > div.expressions > div {
+    display: flex;
+}
+
+expression-group > div.expressions > div > div {
+    display: flex;
+    align-items: center;
+}
+
+expression-group > div.buttons {
+    display: flex;
+    justify-content: top;
+    align-self: flex-end
 }
 
 expression {
-    background-color: green;
     margin: 10px;
-    padding: 5px;
-    
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 2px 4px #888888;
+    border-radius: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
+expression.active {
+    background-color: white;
+}
+
 expression > div.expression {
-    
     flex-grow: 1;
 }
 
@@ -93,8 +139,23 @@ expression > div.expression {
     flex-grow: 1;
 }
 
+.buttons {
+    margin: 10px;
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 2px 4px #888888;
+}
+
 button {
+    width: 48px;
+    height: 48px;
     margin: 5px;
-    width: 32px;
-    height: 32px;
+    border-radius: 50%;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.and, .or {
+    font-weight: bold;
 }

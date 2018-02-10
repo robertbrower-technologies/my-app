@@ -32,15 +32,15 @@ export class FilterListComponent implements OnInit {
 
   @Output() filterClick = new EventEmitter<number>();
 
-  @Output() addClick = new EventEmitter();
+  @Output() addFilterClick = new EventEmitter();
   
   constructor() { }
 
   ngOnInit() {
   }
 
-  addClicked() {
-    this.addClick.emit();
+  addFilterClicked() {
+    this.addFilterClick.emit();
   }
 
   filterClicked(index: number) {

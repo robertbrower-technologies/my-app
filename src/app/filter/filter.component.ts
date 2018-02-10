@@ -17,7 +17,11 @@ export class FilterComponent implements OnInit {
   @Input()
   set filter(value: Filter) {
     this._filter = value;
+    this.filterChange.emit(this._filter);
+    this.selectedIndex = -1;
   }
+
+  @Output() filterChange = new EventEmitter<Filter>();
 
   private _fields: Array<string>;
   
@@ -32,27 +36,42 @@ export class FilterComponent implements OnInit {
 
   @Output() deleteClick = new EventEmitter();
 
+  selectedIndex: number;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  nameChanged() {
+    this.filterChange.emit(this._filter);
   }
 
   deleteClicked() {
     this.deleteClick.emit();
   }
 
-  deleteExpression(id: number) {
-    let index = this.filter.expressions.findIndex(exp => exp.id == id);
-    if (index > -1) {
-      this.filter.expressions.splice(index, 1);
-    }
+  deleteExpressionGroup(index: number) {
+    this.filter.expressionGroups.splice(index, 1);
+    this.selectedIndex = -1;
+    this.filterChange.emit(this._filter);
   }
 
-  addExpression() {
-    this.filter.expressions.push({
-       id: 1,
-       expressions: []
+  addExpressionGroup() {
+    this.filter.expressionGroups.push({
+       expressions: [{field: undefined, operator: undefined, value: undefined }]
     });
+
+    this.selectedIndex = this.filter.expressionGroups.length - 1;
+    this.filterChange.emit(this._filter);
+  }
+
+  expressionGroupClicked(index: number) {
+    this.selectedIndex = index;
+  }
+
+  expressionGroupChanged(index: number) {
+    this.filterChange.emit(this._filter);
   }
 
 }

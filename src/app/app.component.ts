@@ -21,8 +21,17 @@ export class AppComponent {
   
   filters: Array<Filter> = MockFilters;
 
-  filter: Filter;
+  _filter: Filter;
 
+  get filter(): Filter {
+    return this._filter;
+  }
+
+  set filter(value: Filter) {
+    this._filter = value;
+    console.log(`filter set: ${JSON.stringify(this._filter)}`);
+  }
+    
   selectedIndex: number;
 
   filterClicked(index: number) {
@@ -34,7 +43,7 @@ export class AppComponent {
     this.filters.push(
       {
         name: '',
-        expressions: []
+        expressionGroups: []
       }
     );
 

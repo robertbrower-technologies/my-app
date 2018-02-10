@@ -1,0 +1,12 @@
+<div class="expression">
+    <field [fields]="fields" [(value)]="expression.field"></field>
+    <string-comparision *ngIf="expression.field=='productType'" [(value)]="expression.operator" (valueChange)="expressionChanged()"></string-comparision>
+    <string-comparision *ngIf="expression.field=='gender'" [(value)]="expression.operator" (valueChange)="expressionChanged()"></string-comparision>
+    <numeric-comparision *ngIf="expression.field=='price'" [(value)]="expression.operator" (valueChange)="expressionChanged()"></numeric-comparision>
+    <product-type *ngIf="expression.field=='productType'" [(value)]="expression.value" (valueChange)="expressionChanged()"></product-type>
+    <gender *ngIf="expression.field=='gender'" [(value)]="expression.value" (valueChange)="expressionChanged()"></gender>
+    <number *ngIf="expression.field=='price'" [(value)]="expression.value" (valueChange)="expressionChanged()"></number>
+</div>
+<div>
+    <button (click)="deleteClicked()" title="Delete Expression">x</button>
+</div>

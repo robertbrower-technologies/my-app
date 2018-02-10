@@ -1,9 +1,9 @@
-import { CompoundExpression } from './compound-expression/compound-expression';
+import { ExpressionGroup } from './expression-group/expression-group';
 
 export class Filter {
 
     name: string;
     
-    expressions: Array<CompoundExpression>;
+    expressionGroups: Array<ExpressionGroup>;
 
 }
