@@ -35,6 +35,14 @@ export class AppComponent {
   selectedIndex: number;
 
   filterClicked(index: number) {
+    if (this.filter) {
+      if (this.filter.unsavedChanges) {
+        if (confirm(`Save changes?`) == true) {
+          this.filter.unsavedChanges = false;
+        }
+      }
+    }
+
     this.selectedIndex = index;
     this.filter = this.filters[index];
   }
