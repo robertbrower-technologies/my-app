@@ -2,7 +2,7 @@
   <div *ngFor="let exp of expressionGroup.expressions; let i = index">
     <expression
       [expression]="exp"
-      (expressionChange)="expressionChanged(i)"
+      (expressionChange)="expressionChanged($event)"
       [fields]="fields"
       (deleteClick)="deleteExpression(i)"
       (click)="expressionClicked(i)"

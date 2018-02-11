@@ -17,6 +17,7 @@ export class FilterListComponent implements OnInit {
   @Input()
   set filters(value: Array<Filter>) {
     this._filters = value;
+    console.log(`FilterListComponent::set filters(${JSON.stringify(this._filters)})`);
   }
 
   private _selectedIndex: number;

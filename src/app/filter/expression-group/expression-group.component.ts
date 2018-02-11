@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef, AfterViewInit } from '@angular/core';
 import { ExpressionGroup } from './expression-group';
+import { Expression } from './expression/expression';
 
 @Component({
   selector: 'expression-group',
@@ -17,7 +18,8 @@ export class ExpressionGroupComponent implements OnInit, AfterViewInit {
   @Input()
   set expressionGroup(value: ExpressionGroup) {
     this._expressionGroup = value;
-    this.expressionGroupChange.emit(this._expressionGroup);
+    //this.expressionGroupChange.emit(this._expressionGroup);
+    console.log(`ExpressionGroupComponent::set expressionGroup(${JSON.stringify(this._expressionGroup)})`);
   }
 
   @Output() expressionGroupChange = new EventEmitter<ExpressionGroup>();
@@ -31,6 +33,7 @@ export class ExpressionGroupComponent implements OnInit, AfterViewInit {
   @Input()
   set fields(value: Array<string>) {
     this._fields = value;
+    console.log(`ExpressionGroupComponent::set fields(${JSON.stringify(this._fields)})`);
   }
 
   @Output() deleteClick = new EventEmitter();
@@ -76,8 +79,8 @@ export class ExpressionGroupComponent implements OnInit, AfterViewInit {
     this.selectedIndex = index;
   }
 
-  expressionChanged(index: number) {
-    console.log('ExpressionGroupComponent::expressionChanged()');
+  expressionChanged(exp: Expression) {
+    console.log(`ExpressionGroupComponent::expressionChanged(${JSON.stringify(exp)})`);
     this.expressionGroupChange.emit(this._expressionGroup);
   }
 }

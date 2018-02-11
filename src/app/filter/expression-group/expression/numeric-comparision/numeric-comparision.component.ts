@@ -27,7 +27,7 @@ export class NumericComparisionComponent implements OnInit {
   set value(value: string) {
     if (this._value != value) {
       this._value = value;
-      this.valueChange.emit(this._value);
+      console.log(`NumericComparisionComponent::set value(${JSON.stringify(this._value)})`);
     }
   }
 
@@ -37,8 +37,16 @@ export class NumericComparisionComponent implements OnInit {
 
   ngOnInit() {
     if (!this.options.find( opt => opt.value == this.value)) {
-      setTimeout(() => this.value = this.options[0].value);
+      setTimeout(() => {
+        this.value = this.options[0].value;
+        this.valueChanged(null);
+      });
     }
+  }
+
+  valueChanged(event: any) {
+    console.log(`NumericComparisionComponent::valueChanged(${JSON.stringify(event)})`);
+    this.valueChange.emit(this.value);
   }
 
 }

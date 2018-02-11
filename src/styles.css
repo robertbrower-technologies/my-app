@@ -28,6 +28,11 @@ filter-list {
     flex-direction: column;
 }
 
+filter-list > div.buttons {
+    display: flex;
+    align-items: center;
+}
+
 filter-list > div.filters {
     padding: 10px;
     flex-grow: 1;
@@ -92,6 +97,10 @@ expression-group {
 
 expression-group.active {
     background-color: lightblue;
+}
+
+expression-group.active > div.buttons {
+    background-color: white;
 }
 
 expression-group > div.expressions {

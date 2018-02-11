@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Filter } from './filter';
+import { ExpressionGroup } from './expression-group/expression-group';
 
 @Component({
   selector: 'filter',
@@ -17,8 +18,9 @@ export class FilterComponent implements OnInit {
   @Input()
   set filter(value: Filter) {
     this._filter = value;
-    this.filterChange.emit(this._filter);
+    //this.filterChange.emit(this._filter);
     this.selectedIndex = 0;
+    console.log(`FilterComponent::set filter(${JSON.stringify(this._filter)})`);
   }
 
   @Output() filterChange = new EventEmitter<Filter>();
@@ -32,9 +34,12 @@ export class FilterComponent implements OnInit {
   @Input()
   set fields(value: Array<string>) {
     this._fields = value;
+    console.log(`FilterComponent::set fields(${JSON.stringify(this._fields)})`);
   }
 
   @Output() deleteClick = new EventEmitter();
+
+  @Output() saveClick = new EventEmitter();
 
   selectedIndex: number = 0;
 
@@ -49,6 +54,10 @@ export class FilterComponent implements OnInit {
 
   deleteClicked() {
     this.deleteClick.emit();
+  }
+
+  saveClicked() {
+    this.saveClick.emit();
   }
 
   deleteExpressionGroup(index: number) {
@@ -77,8 +86,8 @@ export class FilterComponent implements OnInit {
     this.selectedIndex = index;
   }
 
-  expressionGroupChanged(index: number) {
-    console.log('FilterComponent::expressionGroupChanged()');
+  expressionGroupChanged(grp: ExpressionGroup) {
+    console.log(`FilterComponent::expressionGroupChanged(${JSON.stringify(grp)})`);
     this.filterChange.emit(this._filter);
   }
 

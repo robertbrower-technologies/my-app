@@ -17,6 +17,7 @@ export class FilterListItemComponent implements OnInit, AfterViewInit {
   @Input()
   set filter(value: Filter) {
     this._filter = value;
+    console.log(`FilterListItemComponent::set filter(${JSON.stringify(this._filter)})`);
   }
 
   constructor(private elementRef: ElementRef) { }

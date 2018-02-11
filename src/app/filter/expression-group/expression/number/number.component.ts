@@ -17,7 +17,7 @@ export class NumberComponent implements OnInit {
   set value(value: number) {
     if (this._value != value) {
       this._value = value;
-      this.valueChange.emit(this._value);
+      console.log(`NumberComponent::set value(${JSON.stringify(this._value)})`);
     }
   }
 
@@ -27,8 +27,17 @@ export class NumberComponent implements OnInit {
 
   ngOnInit() {
     if (!(typeof this.value == 'number')) {
-      setTimeout(() => this.value = 0);
+      setTimeout(() => {
+        this.value = 0;
+        this.valueChanged(null);
+      });
+      
     }
+  }
+
+  valueChanged(event: any) {
+    console.log(`NumberComponent::valueChanged(${JSON.stringify(event)})`);
+    this.valueChange.emit(this.value);
   }
 
 }

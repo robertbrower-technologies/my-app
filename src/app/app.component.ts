@@ -29,7 +29,7 @@ export class AppComponent {
 
   set filter(value: Filter) {
     this._filter = value;
-    //console.log(JSON.stringify(this._filter));
+    console.log(`AppComponent::set filter(${JSON.stringify(this._filter)})`);
   }
     
   selectedIndex: number;
@@ -54,12 +54,16 @@ export class AppComponent {
             ]
           }
         ],
-        unsavedChanges: true
+        unsavedChanges: false
       }
     );
 
     this.selectedIndex = this.filters.length - 1;
     this.filter = this.filters[this.selectedIndex];
+  }
+
+  saveFilterClicked() {
+    this.filter.unsavedChanges = false;
   }
 
   deleteFilterClicked() {
@@ -68,8 +72,9 @@ export class AppComponent {
     this.selectedIndex = -1;
   }
 
-  filterChanged() {
-    console.log('AppComponent::filterChanged()');
+  filterChanged(filter: Filter) {
+    console.log(`AppComponent::filterChanged(${JSON.stringify(filter)})`);
+    this.filter.unsavedChanges = true;
   }
 
 }

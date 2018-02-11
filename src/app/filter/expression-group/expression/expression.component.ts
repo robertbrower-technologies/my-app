@@ -17,7 +17,8 @@ export class ExpressionComponent implements OnInit, AfterViewInit {
   @Input()
   set expression(value:Expression) {
     this._expression = value;
-    this.expressionChange.emit(this._expression);
+    //this.expressionChange.emit(this._expression);
+    console.log(`ExpressionComponent::set expression(${JSON.stringify(this._expression)})`);
   }
 
   @Output() expressionChange = new EventEmitter<Expression>();
@@ -31,6 +32,7 @@ export class ExpressionComponent implements OnInit, AfterViewInit {
   @Input()
   set fields(value: Array<string>) {
     this._fields = value;
+    console.log(`ExpressionComponent::set fields(${JSON.stringify(this._fields)})`);
   }
 
   @Output() deleteClick = new EventEmitter();
@@ -48,8 +50,18 @@ export class ExpressionComponent implements OnInit, AfterViewInit {
     this.deleteClick.emit();
   }
 
-  expressionChanged() {
-    console.log('ExpressionComponent::expressionChanged()');
+  fieldChanged(event: any) {
+    console.log(`ExpressionComponent::fieldChanged(${JSON.stringify(event)})`);
+    this.expressionChange.emit(this._expression);
+  }
+
+  operatorChanged(event: any) {
+    console.log(`ExpressionComponent::operatorChanged(${JSON.stringify(event)})`);
+    this.expressionChange.emit(this._expression);
+  }
+
+  valueChanged(event: any) {
+    console.log(`ExpressionComponent::valueChanged(${JSON.stringify(event)})`);
     this.expressionChange.emit(this._expression);
   }
 

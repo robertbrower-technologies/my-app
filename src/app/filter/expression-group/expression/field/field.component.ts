@@ -7,15 +7,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class FieldComponent implements OnInit {
 
-  private _fields: Array<string>;
+  private _options: Array<string>;
 
-  get fields(): Array<string> {
-    return this._fields;
+  get options(): Array<string> {
+    return this._options;
   }
 
   @Input()
-  set fields(value: Array<string>) {
-    this._fields = value;
+  set options(value: Array<string>) {
+    this._options = value;
+    console.log(`FieldComponent::set options(${JSON.stringify(this._options)})`);
   }
 
   private _value: string;
@@ -28,7 +29,7 @@ export class FieldComponent implements OnInit {
   set value(value: string) {
     if (this._value != value) {
       this._value = value;
-      this.valueChange.emit(this._value);
+      console.log(`FieldComponent::set value(${JSON.stringify(this._value)})`);
     }
   }
 
@@ -37,9 +38,17 @@ export class FieldComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    if (this.fields.indexOf(this.value) == -1) {
-      setTimeout(() => this.value = this.fields[0]);
+    if (this.options.indexOf(this.value) == -1) {
+      setTimeout(() => {
+        this.value = this.options[0];
+        this.valueChanged(null);
+      });
     }
+  }
+
+  valueChanged(event: any) {
+    console.log(`FieldComponent::fieldChanged(${JSON.stringify(event)})`);
+    this.valueChange.emit(this.value);
   }
 
 }
