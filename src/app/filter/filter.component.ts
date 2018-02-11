@@ -18,7 +18,6 @@ export class FilterComponent implements OnInit {
   @Input()
   set filter(value: Filter) {
     this._filter = value;
-    //this.filterChange.emit(this._filter);
     this.selectedIndex = 0;
     console.log(`FilterComponent::set filter(${JSON.stringify(this._filter)})`);
   }

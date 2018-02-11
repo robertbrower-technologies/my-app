@@ -18,8 +18,6 @@ export class ExpressionGroupComponent implements OnInit, AfterViewInit {
   @Input()
   set expressionGroup(value: ExpressionGroup) {
     this._expressionGroup = value;
-    //this.expressionGroupChange.emit(this._expressionGroup);
-    console.log(`ExpressionGroupComponent::set expressionGroup(${JSON.stringify(this._expressionGroup)})`);
   }
 
   @Output() expressionGroupChange = new EventEmitter<ExpressionGroup>();

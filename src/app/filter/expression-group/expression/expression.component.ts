@@ -17,7 +17,6 @@ export class ExpressionComponent implements OnInit, AfterViewInit {
   @Input()
   set expression(value:Expression) {
     this._expression = value;
-    //this.expressionChange.emit(this._expression);
     console.log(`ExpressionComponent::set expression(${JSON.stringify(this._expression)})`);
   }
 
