@@ -77,6 +77,7 @@ export class ExpressionGroupComponent implements OnInit, AfterViewInit {
   }
 
   expressionChanged(index: number) {
+    console.log('ExpressionGroupComponent::expressionChanged()');
     this.expressionGroupChange.emit(this._expressionGroup);
   }
 }

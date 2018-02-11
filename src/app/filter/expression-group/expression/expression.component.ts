@@ -49,7 +49,7 @@ export class ExpressionComponent implements OnInit, AfterViewInit {
   }
 
   expressionChanged() {
-    console.log('expressionChanged()');
+    console.log('ExpressionComponent::expressionChanged()');
     this.expressionChange.emit(this._expression);
   }
 

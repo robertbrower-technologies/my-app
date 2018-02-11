@@ -78,6 +78,7 @@ export class FilterComponent implements OnInit {
   }
 
   expressionGroupChanged(index: number) {
+    console.log('FilterComponent::expressionGroupChanged()');
     this.filterChange.emit(this._filter);
   }
 

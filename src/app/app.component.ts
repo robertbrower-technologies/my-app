@@ -29,7 +29,7 @@ export class AppComponent {
 
   set filter(value: Filter) {
     this._filter = value;
-    console.log(JSON.stringify(this._filter));
+    //console.log(JSON.stringify(this._filter));
   }
     
   selectedIndex: number;
@@ -66,6 +66,10 @@ export class AppComponent {
     this.filters.splice(this.selectedIndex, 1);
     this.filter = null;
     this.selectedIndex = -1;
+  }
+
+  filterChanged() {
+    console.log('AppComponent::filterChanged()');
   }
 
 }

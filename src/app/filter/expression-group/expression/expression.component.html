@@ -1,5 +1,5 @@
 <div class="expression">
-    <field [fields]="fields" [(value)]="expression.field"></field>
+    <field [fields]="fields" [(value)]="expression.field" (valueChange)="expressionChanged()"></field>
     <string-comparision *ngIf="expression.field=='productType'" [(value)]="expression.operator" (valueChange)="expressionChanged()"></string-comparision>
     <string-comparision *ngIf="expression.field=='gender'" [(value)]="expression.operator" (valueChange)="expressionChanged()"></string-comparision>
     <numeric-comparision *ngIf="expression.field=='price'" [(value)]="expression.operator" (valueChange)="expressionChanged()"></numeric-comparision>

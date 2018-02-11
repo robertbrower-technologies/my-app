@@ -4,6 +4,6 @@
     (filterClick)="filterClicked($event)"
     (addFilterClick)="addFilterClicked()">
 </filter-list>
-<filter [(filter)]="filter" [fields]="fields"
+<filter [(filter)]="filter" (filterChange)="filterChanged()" [fields]="fields"
     (deleteClick)="deleteFilterClicked()">
 </filter>
