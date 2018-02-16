@@ -1,14 +1,15 @@
 <div class="expressions">
-  <div *ngFor="let exp of expressionGroup.expressions; let i = index">
+  <div class="expression" *ngFor="let exp of expressionGroup.expressions; let i = index">
     <expression
       [expression]="exp"
       (expressionChange)="expressionChanged($event)"
       [fields]="fields"
+      [expressionTemplate]="expressionTemplate"
       (deleteClick)="deleteExpression(i)"
       (click)="expressionClicked(i)"
       [class.active]="i == selectedIndex">
     </expression>
-    <div>
+    <div class="and">
       <span class="and" *ngIf="i < expressionGroup.expressions.length-1">AND</span>
     </div>
   </div>

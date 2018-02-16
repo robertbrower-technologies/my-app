@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef, AfterViewInit } from '@angular/core';
 import { ExpressionGroup } from './expression-group';
 import { Expression } from './expression/expression';
+import { ExpressionTemplateDirective } from './expression/expression-template.directive';
 
 @Component({
   selector: 'expression-group',
@@ -18,6 +19,7 @@ export class ExpressionGroupComponent implements OnInit, AfterViewInit {
   @Input()
   set expressionGroup(value: ExpressionGroup) {
     this._expressionGroup = value;
+    console.log(`ExpressionGroupComponent::set expressionGroup(${JSON.stringify(this._expressionGroup)})`);
   }
 
   @Output() expressionGroupChange = new EventEmitter<ExpressionGroup>();
@@ -37,6 +39,18 @@ export class ExpressionGroupComponent implements OnInit, AfterViewInit {
   @Output() deleteClick = new EventEmitter();
 
   selectedIndex: number = 0;
+
+  private _expressionTemplate: ExpressionTemplateDirective;
+
+  get expressionTemplate() {
+    return this._expressionTemplate;
+  }
+  
+  @Input()
+  set expressionTemplate(value: ExpressionTemplateDirective) {
+    this._expressionTemplate = value;
+    // console.log(`ExpressionGroupComponent::set expressionTemplate(${JSON.stringify(this._expressionTemplate)})`);
+  };
 
   constructor(private elementRef: ElementRef) { }
 

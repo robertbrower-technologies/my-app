@@ -80,8 +80,8 @@ export class AppComponent {
     this.selectedIndex = -1;
   }
 
-  filterChanged(filter: Filter) {
-    console.log(`AppComponent::filterChanged(${JSON.stringify(filter)})`);
+  filterChanged(event: any) {
+    console.log(`AppComponent::filterChanged(${JSON.stringify(event)})`);
     this.filter.unsavedChanges = true;
   }
 

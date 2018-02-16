@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef, AfterViewInit } from '@angular/core';
 import { Expression } from './expression';
+import { ExpressionTemplateDirective } from './expression-template.directive';
 
 @Component({
   selector: 'expression',
@@ -36,6 +37,18 @@ export class ExpressionComponent implements OnInit, AfterViewInit {
 
   @Output() deleteClick = new EventEmitter();
 
+  private _expressionTemplate: ExpressionTemplateDirective;
+
+  get expressionTemplate() {
+    return this._expressionTemplate;
+  }
+  
+  @Input()
+  set expressionTemplate(value: ExpressionTemplateDirective) {
+    this._expressionTemplate = value;
+    // console.log(`ExpressionComponent::set expressionTemplate(${JSON.stringify(this._expressionTemplate)})`);
+  };
+  
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit() {

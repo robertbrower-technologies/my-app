@@ -12,31 +12,41 @@ body {
 }
 
 app-root {
+    padding: 10px;
+
     display: flex;
     flex-grow: 1;
 }
 
 filter-list {
-    width: 320px;
-    margin: 10px;
+    margin-right: 5px;
     padding: 10px;
+
+    width: 320px;
     border-style: solid;
     border-width: 1px;
     box-shadow: 2px 4px #888888;
-    flex-shrink: 0;
+
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
 }
 
 filter-list > div.buttons {
+    padding-left: 5px;
+
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 2px 4px #888888;
+
     display: flex;
     align-items: center;
 }
 
 filter-list > div.filters {
-    padding: 10px;
-    flex-grow: 1;
     overflow-y: auto;
+
+    flex-grow: 1;
 }
 
 filter-list > div.filters > ul {
@@ -57,14 +67,20 @@ filter-list li.active {
 }
 
 filter {
-    margin: 10px;
-    padding: 10px;
+    margin-left: 5px;
+
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
 filter > div.buttons {
+    padding-left: 5px;
+
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 2px 4px #888888;
+
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -72,49 +88,46 @@ filter > div.buttons {
 }
 
 filter > div.expression-groups {
-    
-    flex-grow: 1;
+    margin-top: 10px;
     overflow-y: auto;
+
+    flex-grow: 1;
 }
 
-filter > div.expression-groups > div {
+filter > div.expression-groups > div.expression-group {
+    
+
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 expression-group {
-    margin: 10px;
-    padding: 10px;
     border-style: solid;
     border-width: 1px;
     box-shadow: 2px 4px #888888;
+    
+    flex-grow: 1;
     display: flex;
     flex-direction: row;
     align-items: center;
-    flex-grow: 1;
 }
 
 expression-group.active {
     background-color: lightblue;
 }
 
-expression-group.active > div.buttons {
-    background-color: white;
-}
-
 expression-group > div.expressions {
-    padding: 10px;
     display: flex;
     flex-grow: 1;
     flex-wrap: wrap;
 }
 
-expression-group > div.expressions > div {
+expression-group > div.expressions > div.expression {
     display: flex;
 }
 
-expression-group > div.expressions > div > div {
+expression-group > div.expressions > div.expression > div.and {
     display: flex;
     align-items: center;
 }
@@ -127,14 +140,19 @@ expression-group > div.buttons {
 
 expression {
     margin: 10px;
-    padding: 10px;
+
     border-style: solid;
     border-width: 1px;
     box-shadow: 2px 4px #888888;
     border-radius: 50px;
+
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+expression > div.terms {
+    margin-left: 5px;
 }
 
 expression.active {
@@ -143,18 +161,6 @@ expression.active {
 
 expression > div.expression {
     flex-grow: 1;
-}
-
-.fill {
-    flex-grow: 1;
-}
-
-.buttons {
-    margin: 10px;
-    padding: 10px;
-    border-style: solid;
-    border-width: 1px;
-    box-shadow: 2px 4px #888888;
 }
 
 button {
@@ -168,4 +174,12 @@ button {
 
 .and, .or {
     font-weight: bold;
+}
+
+div.or {
+    margin: 10px;
+}
+
+.fill {
+    flex-grow: 1;
 }

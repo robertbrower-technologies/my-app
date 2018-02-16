@@ -7,4 +7,14 @@
 <filter [filter]="filter" (filterChange)="filterChanged($event)" [fields]="fields"
     (saveClick)="saveFilterClicked()"
     (deleteClick)="deleteFilterClicked()">
+    <span *expressionTemplate="let expression">
+        <!-- expression, as in "let expression" is undefined here by design because it enables the databinding
+             expressions below. expression is a context that is implicitly set in expression.component.html. -->
+        <string-comparision *ngIf="expression.field=='productType'" [(value)]="expression.operator" (valueChange)="filterChanged($event)"></string-comparision>
+        <string-comparision *ngIf="expression.field=='gender'" [(value)]="expression.operator" (valueChange)="filterChanged($event)"></string-comparision>
+        <numeric-comparision *ngIf="expression.field=='price'" [(value)]="expression.operator" (valueChange)="filterChanged($event)"></numeric-comparision>
+        <product-type *ngIf="expression.field=='productType'" [(value)]="expression.value" (valueChange)="filterChanged($event)"></product-type>
+        <gender *ngIf="expression.field=='gender'" [(value)]="expression.value" (valueChange)="filterChanged($event)"></gender>
+        <number *ngIf="expression.field=='price'" [(value)]="expression.value" (valueChange)="filterChanged($event)"></number>
+    </span>
 </filter>

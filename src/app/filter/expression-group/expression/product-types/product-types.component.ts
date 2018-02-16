@@ -2,15 +2,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Option } from '../option';
 
 @Component({
-  selector: 'gender',
-  templateUrl: './gender.component.html',
-  styleUrls: ['./gender.component.css']
+  selector: 'product-types',
+  templateUrl: './product-types.component.html',
+  styleUrls: ['./product-types.component.css']
 })
-export class GenderComponent implements OnInit {
+export class ProductTypesComponent implements OnInit {
 
   options: Array<Option> = [
-    { text: 'male', value: 'male' },
-    { text: 'female', value: 'female' }
+    { text: 'hats', value: 'hats' },
+    { text: 'shirts', value: 'shirts' },
+    { text: 'shoes', value: 'shoes' }
   ];
 
   private _value: string;
@@ -23,7 +24,7 @@ export class GenderComponent implements OnInit {
   set value(value: string) {
     if (this._value != value) {
       this._value = value;
-      console.log(`GenderComponent::set value(${JSON.stringify(this._value)})`);
+      console.log(`ProductTypeComponent::set value(${JSON.stringify(this._value)})`);
     }
   }
 
@@ -41,7 +42,7 @@ export class GenderComponent implements OnInit {
   }
 
   valueChanged(event: any) {
-    console.log(`GenderComponent::valueChanged(${JSON.stringify(event)})`);
+    console.log(`ProductTypeComponent::valueChanged(${JSON.stringify(event)})`);
     this.valueChange.emit(this.value);
   }
 

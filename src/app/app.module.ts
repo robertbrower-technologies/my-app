@@ -8,12 +8,13 @@ import { FilterListComponent } from './filter-list/filter-list.component';
 import { FilterListItemComponent } from './filter-list/filter-list-item/filter-list-item.component';
 import { ExpressionGroupComponent } from './filter/expression-group/expression-group.component';
 import { ExpressionComponent } from './filter/expression-group/expression/expression.component';
-import { FieldComponent } from './filter/expression-group/expression/field/field.component';
+import { FieldNameComponent } from './filter/expression-group/expression/field-name/field-name.component';
 import { StringComparisionComponent } from './filter/expression-group/expression/string-comparision/string-comparision.component';
 import { NumericComparisionComponent } from './filter/expression-group/expression/numeric-comparision/numeric-comparision.component';
 import { ProductTypeComponent } from './filter/expression-group/expression/product-type/product-type.component';
 import { GenderComponent } from './filter/expression-group/expression/gender/gender.component';
 import { NumberComponent } from './filter/expression-group/expression/number/number.component';
+import { ExpressionTemplateDirective } from './filter/expression-group/expression/expression-template.directive';
 
 @NgModule({
   declarations: [
@@ -25,10 +26,11 @@ import { NumberComponent } from './filter/expression-group/expression/number/num
     ExpressionComponent,
     StringComparisionComponent,
     NumericComparisionComponent,
-    FieldComponent,
+    FieldNameComponent,
     ProductTypeComponent,
     GenderComponent,
-    NumberComponent
+    NumberComponent,
+    ExpressionTemplateDirective
   ],
   imports: [
     BrowserModule,

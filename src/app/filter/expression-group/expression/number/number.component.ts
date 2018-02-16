@@ -29,7 +29,7 @@ export class NumberComponent implements OnInit {
     if (!(typeof this.value == 'number')) {
       setTimeout(() => {
         this.value = 0;
-        this.valueChanged(null);
+        this.valueChanged(this.value);
       });
       
     }

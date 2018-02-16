@@ -36,7 +36,7 @@ export class ProductTypeComponent implements OnInit {
     if (!this.options.find( opt => opt.value == this.value)) {
       setTimeout(() => {
         this.value = this.options[0].value;
-        this.valueChanged(null);
+        this.valueChanged(this.value);
       });
     }
   }

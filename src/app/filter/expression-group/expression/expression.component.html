@@ -1,12 +1,7 @@
-<div class="expression">
-    <field [options]="fields" [(value)]="expression.field" (valueChange)="fieldChanged($event)"></field>
-    <string-comparision *ngIf="expression.field=='productType'" [(value)]="expression.operator" (valueChange)="operatorChanged($event)"></string-comparision>
-    <string-comparision *ngIf="expression.field=='gender'" [(value)]="expression.operator" (valueChange)="operatorChanged($event)"></string-comparision>
-    <numeric-comparision *ngIf="expression.field=='price'" [(value)]="expression.operator" (valueChange)="operatorChanged($event)"></numeric-comparision>
-    <product-type *ngIf="expression.field=='productType'" [(value)]="expression.value" (valueChange)="valueChanged($event)"></product-type>
-    <gender *ngIf="expression.field=='gender'" [(value)]="expression.value" (valueChange)="valueChanged($event)"></gender>
-    <number *ngIf="expression.field=='price'" [(value)]="expression.value" (valueChange)="valueChanged($event)"></number>
+<div class="terms">
+    <field-name [options]="fields" [(value)]="expression.field" (valueChange)="fieldChanged($event)"></field-name>
+    <ng-container *ngTemplateOutlet="expressionTemplate; context: {$implicit: expression}"></ng-container>
 </div>
-<div>
+<div class="buttons">
     <button (click)="deleteClicked()" title="Delete Expression">x</button>
 </div>

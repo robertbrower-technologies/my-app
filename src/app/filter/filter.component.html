@@ -6,16 +6,17 @@
   <button title="Delete filter" (click)="deleteClicked()">x</button>
 </div>
 <div #expressionGroups class="expression-groups">
-    <div *ngFor="let grp of filter?.expressionGroups; let i = index">
+    <div class="expression-group" *ngFor="let grp of filter?.expressionGroups; let i = index">
       <expression-group
         [expressionGroup]="grp"
         (expressionGroupChange)="expressionGroupChanged($event)"
         [fields]="fields"
+        [expressionTemplate]="expressionTemplate"
         (deleteClick)="deleteExpressionGroup(i)"
         (click)="expressionGroupClicked(i)"
         [class.active]="i == selectedIndex">
       </expression-group>
-      <div>
+      <div class="or">
         <span class="or" *ngIf="i < filter?.expressionGroups.length-1">OR</span>
       </div>
     </div>

@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'field',
-  templateUrl: './field.component.html',
-  styleUrls: ['./field.component.css']
+  selector: 'field-name',
+  templateUrl: './field-name.component.html',
+  styleUrls: ['./field-name.component.css']
 })
-export class FieldComponent implements OnInit {
+export class FieldNameComponent implements OnInit {
 
   private _options: Array<string>;
 
@@ -16,7 +16,7 @@ export class FieldComponent implements OnInit {
   @Input()
   set options(value: Array<string>) {
     this._options = value;
-    console.log(`FieldComponent::set options(${JSON.stringify(this._options)})`);
+    console.log(`FieldNameComponent::set options(${JSON.stringify(this._options)})`);
   }
 
   private _value: string;
@@ -29,7 +29,7 @@ export class FieldComponent implements OnInit {
   set value(value: string) {
     if (this._value != value) {
       this._value = value;
-      console.log(`FieldComponent::set value(${JSON.stringify(this._value)})`);
+      console.log(`FieldNameComponent::set value(${JSON.stringify(this._value)})`);
     }
   }
 
@@ -41,13 +41,13 @@ export class FieldComponent implements OnInit {
     if (this.options.indexOf(this.value) == -1) {
       setTimeout(() => {
         this.value = this.options[0];
-        this.valueChanged(null);
+        this.valueChanged(this.value);
       });
     }
   }
 
   valueChanged(event: any) {
-    console.log(`FieldComponent::fieldChanged(${JSON.stringify(event)})`);
+    console.log(`FieldNameComponent::valueChanged(${JSON.stringify(event)})`);
     this.valueChange.emit(this.value);
   }
 

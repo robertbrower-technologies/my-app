@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ContentChild, TemplateRef } from '@angular/core';
 import { Filter } from './filter';
 import { ExpressionGroup } from './expression-group/expression-group';
+import { ExpressionTemplateDirective } from './expression-group/expression/expression-template.directive';
 
 @Component({
   selector: 'filter',
@@ -41,6 +42,8 @@ export class FilterComponent implements OnInit {
   @Output() saveClick = new EventEmitter();
 
   selectedIndex: number = 0;
+
+  @ContentChild(ExpressionTemplateDirective, {read: TemplateRef}) expressionTemplate;
 
   constructor() { }
 

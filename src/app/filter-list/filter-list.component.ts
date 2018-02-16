@@ -29,6 +29,7 @@ export class FilterListComponent implements OnInit {
   @Input()
   set selectedIndex(value: number) {
     this._selectedIndex = value;
+    console.log(`FilterListComponent::set selectedIndex(${JSON.stringify(this._selectedIndex)})`);
   }
 
   @Output() filterClick = new EventEmitter<number>();
